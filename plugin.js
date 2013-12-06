@@ -33,7 +33,7 @@ function getContributors () {
   request({
     url: 'https://api.github.com/repos/angular/angular.js/contributors',
     json: true
-  }), function (error, response, body) {
+  }, function (error, response, body) {
     if (!error && body) {
       contributors = body.map(function (user) {
         return user.login;
