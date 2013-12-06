@@ -18,5 +18,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/btford/poppins-check-cla/issues"
+  },
+  "dependencies": {
+    "request": "~2.29.0"
   }
 }
