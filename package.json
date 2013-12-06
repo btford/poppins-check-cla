@@ -1,6 +1,6 @@
 {
   "name": "poppins-check-cla",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "mary-poppins plugin for checking whether a user has signed the CLA or not",
   "main": "plugin.js",
   "scripts": {
