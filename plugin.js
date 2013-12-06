@@ -14,7 +14,7 @@ module.exports = function (poppins) {
     throw new Error('poppins-check-cla requires poppins-pr-checklist to be loaded first');
   }
 
-  pluggins.checkCla = {
+  plugins.checkCla = {
     message:
       "Contributor [signed CLA]" +
           "(https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#signing-the-cla)" +
@@ -26,7 +26,7 @@ module.exports = function (poppins) {
     }
   };
 
-  plugins.prChecklist.checks.push(pluggins.checkCla);
+  plugins.prChecklist.checks.push(plugins.checkCla);
 };
 
 function getContributors () {
