@@ -1,11 +1,3 @@
-var request = require('request');
-
-var contributors = [];
-
-// initially populate the list, then poll every six hours
-// we need to do this because for now, checks must be sync
-getContributors();
-setInterval(getContributors, 1000 * 60 * 60 * 6);
 
 module.exports = function (poppins) {
   var plugins = poppins.plugins;
@@ -22,22 +14,13 @@ module.exports = function (poppins) {
       "  - If you've already signed, leave a comment here with your real name. Thanks!",
 
     condition: function (pr) {
-      return contributors.indexOf(pr.user.login) > -1;
+      return poppins.rest.getContributors().then(function (contributors) {
+        return contributors.some(function (user) {
+          return user.login === pr.user.login;
+        });
+      });
     }
   };
 
   plugins.prChecklist.checks.push(plugins.checkCla);
 };
-
-function getContributors () {
-  request({
-    url: 'https://api.github.com/repos/angular/angular.js/contributors',
-    json: true
-  }, function (error, response, body) {
-    if (!error && body) {
-      contributors = body.map(function (user) {
-        return user.login;
-      });
-    }
-  });
-}
