@@ -3,6 +3,7 @@
 A [Mary Poppins](https://github.com/btford/mary-poppins) plugin for checking whether a user has signed a CLA or not.
 Requires the [`pr-checklist`](https://github.com/btford/poppins-pr-checklist) plugin.
 
+It does this "check" by seeing if the user submitting the PR has contributed before.
 
 ## Install
 
@@ -22,11 +23,6 @@ module.exports = function (poppins) {
 
   // pr checklist config
   poppins.couldYouPlease('pr-checklist');
-  poppins.plugins.prChecklist.greeting = 'Hello';
-  poppins.plugins.prChecklist.closing = 'Farewell';
-
-  // check commit config
-  poppins.couldYouPlease('check-cla');
 };
 ```
 
