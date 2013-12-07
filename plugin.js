@@ -13,10 +13,10 @@ module.exports = function (poppins) {
           " now or in the past\n" +
       "  - If you've already signed, leave a comment here with your real name. Thanks!",
 
-    condition: function (pr) {
-      return poppins.rest.getContributors().then(function (contributors) {
+    condition: function (data) {
+      return poppins.getContributors().then(function (contributors) {
         return contributors.some(function (user) {
-          return user.login === pr.user.login;
+          return user.login === data.pull_request.user.login;
         });
       });
     }
